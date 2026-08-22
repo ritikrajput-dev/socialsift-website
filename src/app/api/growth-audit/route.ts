@@ -1,89 +1,68 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// ============================================================
-// FREE FORM CONFIGURATION
-// ============================================================
-// Add this environment variable in Vercel after creating your
-// Google Apps Script endpoint:
-//
-// FORM_ENDPOINT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
-//
-// The website sends every Growth Audit submission to that endpoint.
-// No paid database is required.
-// ============================================================
-
 const FORM_ENDPOINT_URL = process.env.FORM_ENDPOINT_URL || "";
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    const {
-      fullName,
-      companyName,
-      businessEmail,
-      whatsappPhone,
-      website,
-      industry,
-      servicesInterested,
-      monthlyBudget,
-      monthlyLeads,
-      biggestChallenge,
-      desiredResult,
-      additionalMessage,
-    } = body;
+    const { fullName, businessEmail, servicesInterested } = body;
 
     if (!fullName || !businessEmail) {
       return NextResponse.json(
-        { success: false, error: "Full name and business email are required." },
+        {
+          success: false,
+          error: "Full name and business email are required.",
+        },
         { status: 400 }
       );
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(businessEmail)) {
       return NextResponse.json(
-        { success: false, error: "Please provide a valid email address." },
+        {
+          success: false,
+          error: "Please provide a valid email address.",
+        },
         { status: 400 }
       );
     }
 
     if (!FORM_ENDPOINT_URL) {
-      console.error("FORM_ENDPOINT_URL is not configured.");
       return NextResponse.json(
         {
           success: false,
-          error: "The form is not connected yet. Please configure FORM_ENDPOINT_URL in Vercel.",
+          error: "Form endpoint is not configured yet.",
         },
         { status: 503 }
       );
     }
 
-    const externalResponse = await fetch(FORM_ENDPOINT_URL, {
+    const payload = {
+      ...body,
+      servicesInterested: Array.isArray(servicesInterested)
+        ? servicesInterested.join(", ")
+        : servicesInterested || "",
+      submittedAt: new Date().toISOString(),
+      source: "SocialSift Growth Audit",
+    };
+
+    const response = await fetch(FORM_ENDPOINT_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        ...body,
-        servicesInterested: Array.isArray(servicesInterested)
-          ? servicesInterested.join(", ")
-          : servicesInterested || "",
-        submittedAt: new Date().toISOString(),
-        source: "SocialSift Growth Audit",
-      }),
+      body: JSON.stringify(payload),
       cache: "no-store",
     });
 
-    if (!externalResponse.ok) {
-      console.error(
-        "External form endpoint returned:",
-        externalResponse.status
-      );
+    if (!response.ok) {
       return NextResponse.json(
         {
           success: false,
-          error: "We couldn't submit your request right now. Please try again.",
+          error: "Could not submit the form. Please try again.",
         },
         { status: 502 }
       );
@@ -96,11 +75,11 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error("Growth audit submission error:", error);
+
     return NextResponse.json(
       {
         success: false,
-        error:
-          "Something went wrong. Please try again or contact us at socialsift.agency@gmail.com",
+        error: "Something went wrong. Please try again.",
       },
       { status: 500 }
     );
