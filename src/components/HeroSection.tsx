@@ -1,4 +1,5 @@
-```tsx
+"use client";
+
 import React from "react";
 import {
   ArrowRight,
@@ -11,11 +12,18 @@ import {
 
 const HeroSection = () => {
   const services = [
-    [Target, "PERFORMANCE MARKETING"],
-    [LineChart, "LEAD GENERATION"],
-    [BarChart3, "CONVERSION OPTIMIZATION"],
-    [Database, "CRM & AUTOMATION"],
-    [Zap, "DATA-DRIVEN GROWTH"],
+    { icon: Target, text: "PERFORMANCE MARKETING" },
+    { icon: LineChart, text: "LEAD GENERATION" },
+    { icon: BarChart3, text: "CONVERSION OPTIMIZATION" },
+    { icon: Database, text: "CRM & AUTOMATION" },
+    { icon: Zap, text: "DATA-DRIVEN GROWTH" },
+  ];
+
+  const stats = [
+    { label: "REVENUE", value: "$248K", change: "+32.8%" },
+    { label: "LEADS", value: "4,821", change: "+24.4%" },
+    { label: "ROAS", value: "4.82x", change: "+18.2%" },
+    { label: "CVR", value: "8.7%", change: "+12.6%" },
   ];
 
   return (
@@ -30,14 +38,13 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="pointer-events-none absolute left-1/2 top-20 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[#665cff]/10 blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[#665cff]/10 blur-[140px]" />
 
-      {/* MAIN CONTAINER */}
+      {/* Main centered container */}
       <div className="relative mx-auto w-full max-w-[1280px] px-6 sm:px-8 lg:px-10">
-        {/* HERO */}
-        <div className="grid grid-cols-1 items-center gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 lg:py-20">
-          
-          {/* LEFT */}
+        {/* Hero */}
+        <div className="grid grid-cols-1 items-center gap-12 py-12 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:py-16">
+          {/* Left content */}
           <div className="w-full max-w-[560px]">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#665cff]/30 bg-[#665cff]/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.16em] text-[#9b95ff]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#8178ff]" />
@@ -85,18 +92,18 @@ const HeroSection = () => {
                 <span className="h-8 w-8 rounded-full border-2 border-[#070812] bg-[#5a54a0]" />
                 <span className="h-8 w-8 rounded-full border-2 border-[#070812] bg-[#7972cc]" />
               </div>
+
               <span>Built for ambitious brands ready to scale</span>
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* Dashboard */}
           <div className="flex w-full items-center justify-center lg:justify-end">
             <div className="relative w-full max-w-[590px]">
               <div className="absolute -inset-8 rounded-[40px] bg-[#665cff]/10 blur-3xl" />
 
               <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0e1b] shadow-2xl shadow-black/40">
-                
-                {/* Header */}
+                {/* Dashboard header */}
                 <div className="flex items-center justify-between border-b border-white/10 px-5 py-3.5">
                   <div className="flex gap-1.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
@@ -112,32 +119,34 @@ const HeroSection = () => {
                 <div className="p-4 sm:p-5">
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-                    {[
-                      ["REVENUE", "$248K", "+32.8%"],
-                      ["LEADS", "4,821", "+24.4%"],
-                      ["ROAS", "4.82x", "+18.2%"],
-                      ["CVR", "8.7%", "+12.6%"],
-                    ].map(([label, value, change]) => (
+                    {stats.map((stat) => (
                       <div
-                        key={label}
+                        key={stat.label}
                         className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-3"
                       >
-                        <p className="text-[9px] text-white/35">{label}</p>
-                        <p className="mt-1 text-lg font-semibold">{value}</p>
+                        <p className="text-[9px] text-white/35">
+                          {stat.label}
+                        </p>
+
+                        <p className="mt-1 text-lg font-semibold">
+                          {stat.value}
+                        </p>
+
                         <p className="mt-0.5 text-[9px] text-[#8d86ff]">
-                          {change}
+                          {stat.change}
                         </p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Chart */}
+                  {/* Revenue chart */}
                   <div className="mt-3 rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="text-[10px] text-white/40">
                           Revenue Growth
                         </p>
+
                         <p className="mt-1 text-xl font-semibold">
                           $248,420
                         </p>
@@ -150,12 +159,10 @@ const HeroSection = () => {
 
                     <div className="relative mt-3 h-[175px]">
                       <div className="absolute inset-0 flex flex-col justify-between">
-                        {[1, 2, 3, 4].map((i) => (
-                          <div
-                            key={i}
-                            className="border-t border-white/[0.05]"
-                          />
-                        ))}
+                        <div className="border-t border-white/[0.05]" />
+                        <div className="border-t border-white/[0.05]" />
+                        <div className="border-t border-white/[0.05]" />
+                        <div className="border-t border-white/[0.05]" />
                       </div>
 
                       <svg
@@ -210,35 +217,40 @@ const HeroSection = () => {
                     </div>
                   </div>
 
-                  {/* Bottom stats */}
+                  {/* Bottom metrics */}
                   <div className="mt-3 grid grid-cols-3 gap-2.5">
-                    {[
-                      [Target, "Paid Ads", "2.8x"],
-                      [LineChart, "Lead Gen", "1,284"],
-                      [Zap, "Automation", "94%"],
-                    ].map(([Icon, label, value]) => {
-                      const IconComponent = Icon as React.ElementType;
+                    <div className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.025] p-2.5">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#665cff]/10 text-[#8981ff]">
+                        <Target size={13} />
+                      </div>
 
-                      return (
-                        <div
-                          key={label as string}
-                          className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.025] p-2.5"
-                        >
-                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#665cff]/10 text-[#8981ff]">
-                            <IconComponent size={13} />
-                          </div>
+                      <div>
+                        <p className="text-[8px] text-white/35">Paid Ads</p>
+                        <p className="text-xs font-semibold">2.8x</p>
+                      </div>
+                    </div>
 
-                          <div>
-                            <p className="text-[8px] text-white/35">
-                              {label as string}
-                            </p>
-                            <p className="text-xs font-semibold">
-                              {value as string}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
+                    <div className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.025] p-2.5">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#665cff]/10 text-[#8981ff]">
+                        <LineChart size={13} />
+                      </div>
+
+                      <div>
+                        <p className="text-[8px] text-white/35">Lead Gen</p>
+                        <p className="text-xs font-semibold">1,284</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.025] p-2.5">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#665cff]/10 text-[#8981ff]">
+                        <Zap size={13} />
+                      </div>
+
+                      <div>
+                        <p className="text-[8px] text-white/35">Automation</p>
+                        <p className="text-xs font-semibold">94%</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -246,21 +258,22 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* SERVICES */}
+        {/* Services */}
         <div className="border-t border-white/[0.06]">
           <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-6">
-            {services.map(([Icon, text]) => {
-              const IconComponent = Icon as React.ElementType;
+            {services.map((service) => {
+              const Icon = service.icon;
 
               return (
                 <div
-                  key={text as string}
+                  key={service.text}
                   className="flex items-center gap-2.5 text-[10px] font-medium uppercase tracking-wide text-white/45"
                 >
                   <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-[#665cff]/20 bg-[#665cff]/10 text-[#8981ff]">
-                    <IconComponent size={13} />
+                    <Icon size={13} />
                   </div>
-                  <span>{text as string}</span>
+
+                  <span>{service.text}</span>
                 </div>
               );
             })}
@@ -272,7 +285,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-```
-
-**Is file ko pura replace karo — old HeroSection ka kuch bhi mat rakho.** Isme hero ka container `1280px` par centered hai, left content aur dashboard proper 50/50 layout mein hain, aur extra `min-height`/huge vertical spacing nahi hai.
-
