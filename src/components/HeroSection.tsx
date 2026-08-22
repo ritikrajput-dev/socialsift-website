@@ -1,38 +1,38 @@
-import React from "react";
+import React from 'react';
 
-export default function Hero() {
+export default function HeroSection() {
   return (
-    <div className="w-full bg-[#080811] text-white pt-28 pb-12 overflow-hidden">
-      {/* Container: Navbar ke saath ekdum align rahega */}
+    <section className="relative w-full bg-[#080811] text-white pt-28 pb-12 overflow-hidden">
+      {/* Main Centered Container - Navbar ke saath perfect align hoga */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 2-Column Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Responsive Grid: Mobile me 1 column, Laptop/Desktop me 2 column */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          {/* LEFT COLUMN: Heading & Buttons (5 Columns wide on desktop) */}
-          <div className="lg:col-span-5 flex flex-col items-start space-y-6 text-left">
+          {/* LEFT COLUMN: Text Content (Laptop: 6 cols, Mobile: Full width) */}
+          <div className="lg:col-span-6 flex flex-col items-start space-y-6 text-left">
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
               Turn Attention <br />
               <span className="text-indigo-400">Into Revenue.</span>
             </h1>
 
-            <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-400 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed">
               We build performance-driven marketing systems that generate qualified leads,
               improve conversions, and turn your growth engine into a predictable revenue machine.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* Buttons (Mobile friendly) */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto pt-2">
               <a
                 href="#audit"
-                className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-medium text-sm transition shadow-lg shadow-indigo-600/30 flex items-center gap-2"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3.5 rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 text-center"
               >
                 Get a Free Growth Audit <span>→</span>
               </a>
               <a
                 href="#how-it-works"
-                className="text-gray-300 hover:text-white px-4 py-3 font-medium text-sm transition"
+                className="text-gray-300 hover:text-white px-5 py-3.5 font-medium text-sm transition text-center border border-gray-800 sm:border-none rounded-xl"
               >
                 See How It Works
               </a>
@@ -41,54 +41,54 @@ export default function Hero() {
             {/* Social Proof */}
             <div className="flex items-center gap-3 pt-2">
               <div className="flex -space-x-2">
-                <div className="w-7 h-7 rounded-full bg-indigo-500 ring-2 ring-[#080811]" />
-                <div className="w-7 h-7 rounded-full bg-purple-500 ring-2 ring-[#080811]" />
-                <div className="w-7 h-7 rounded-full bg-blue-500 ring-2 ring-[#080811]" />
+                <div className="w-8 h-8 rounded-full bg-indigo-500 border-2 border-[#080811]" />
+                <div className="w-8 h-8 rounded-full bg-purple-500 border-2 border-[#080811]" />
+                <div className="w-8 h-8 rounded-full bg-blue-500 border-2 border-[#080811]" />
               </div>
-              <span className="text-xs text-gray-400 font-medium">
+              <span className="text-xs sm:text-sm text-gray-400 font-medium">
                 Built for ambitious brands ready to scale
               </span>
             </div>
 
           </div>
 
-          {/* RIGHT COLUMN: Dashboard Box (7 Columns wide on desktop) */}
-          <div className="lg:col-span-7 w-full">
-            <div className="rounded-2xl border border-gray-800 bg-[#0d0d1a]/80 p-5 shadow-2xl backdrop-blur-sm">
+          {/* RIGHT COLUMN: Dashboard Box (Laptop: 6 cols, Mobile: Full width) */}
+          <div className="lg:col-span-6 w-full">
+            <div className="rounded-2xl border border-gray-800/80 bg-[#0c0c1a] p-4 sm:p-6 shadow-2xl backdrop-blur-md">
               
-              {/* Top Revenue Stat */}
-              <div className="flex justify-between items-center pb-4 border-b border-gray-800">
+              {/* Header Stats */}
+              <div className="flex justify-between items-center pb-4 border-b border-gray-800/80">
                 <div>
-                  <p className="text-xs text-gray-400">Revenue Growth</p>
-                  <p className="text-2xl font-bold text-white">$248,420</p>
+                  <p className="text-xs text-gray-400 font-medium">Revenue Growth</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-white mt-1">$248,420</p>
                 </div>
-                <span className="text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full font-semibold">
+                <span className="text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full font-semibold">
                   +32.8%
                 </span>
               </div>
 
-              {/* Chart Graphics */}
-              <div className="h-52 my-4 flex items-end justify-between gap-3 px-2">
-                <div className="w-full bg-indigo-600/30 h-[35%] rounded-t-md" />
-                <div className="w-full bg-indigo-600/40 h-[50%] rounded-t-md" />
-                <div className="w-full bg-indigo-600/50 h-[45%] rounded-t-md" />
-                <div className="w-full bg-indigo-600/70 h-[70%] rounded-t-md" />
-                <div className="w-full bg-indigo-500 h-[90%] rounded-t-md" />
+              {/* Chart Visual */}
+              <div className="h-44 sm:h-52 my-5 flex items-end justify-between gap-2 sm:gap-3 px-1">
+                <div className="w-full bg-indigo-600/30 hover:bg-indigo-600/50 transition h-[35%] rounded-t-lg" />
+                <div className="w-full bg-indigo-600/40 hover:bg-indigo-600/60 transition h-[55%] rounded-t-lg" />
+                <div className="w-full bg-indigo-600/50 hover:bg-indigo-600/70 transition h-[45%] rounded-t-lg" />
+                <div className="w-full bg-indigo-600/70 hover:bg-indigo-600/80 transition h-[75%] rounded-t-lg" />
+                <div className="w-full bg-indigo-500 hover:bg-indigo-400 transition h-[95%] rounded-t-lg shadow-lg shadow-indigo-500/20" />
               </div>
 
-              {/* Metric Cards */}
-              <div className="grid grid-cols-3 gap-3 pt-2">
-                <div className="bg-[#131326] p-3 rounded-lg border border-gray-800 text-center">
-                  <p className="text-[11px] text-gray-400">Paid Ads</p>
-                  <p className="text-base font-bold text-white">2.8x</p>
+              {/* Metric Footer Cards */}
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-2">
+                <div className="bg-[#121226] p-2.5 sm:p-3 rounded-xl border border-gray-800 text-center">
+                  <p className="text-[10px] sm:text-xs text-gray-400">Paid Ads</p>
+                  <p className="text-sm sm:text-base font-bold text-white mt-0.5">2.8x</p>
                 </div>
-                <div className="bg-[#131326] p-3 rounded-lg border border-gray-800 text-center">
-                  <p className="text-[11px] text-gray-400">Lead Gen</p>
-                  <p className="text-base font-bold text-white">1,284</p>
+                <div className="bg-[#121226] p-2.5 sm:p-3 rounded-xl border border-gray-800 text-center">
+                  <p className="text-[10px] sm:text-xs text-gray-400">Lead Gen</p>
+                  <p className="text-sm sm:text-base font-bold text-white mt-0.5">1,284</p>
                 </div>
-                <div className="bg-[#131326] p-3 rounded-lg border border-gray-800 text-center">
-                  <p className="text-[11px] text-gray-400">Automation</p>
-                  <p className="text-base font-bold text-white">94%</p>
+                <div className="bg-[#121226] p-2.5 sm:p-3 rounded-xl border border-gray-800 text-center">
+                  <p className="text-[10px] sm:text-xs text-gray-400">Automation</p>
+                  <p className="text-sm sm:text-base font-bold text-white mt-0.5">94%</p>
                 </div>
               </div>
 
@@ -98,16 +98,20 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* TICKER / BADGES SECTION - Outside Grid */}
-      <div className="mt-16 border-y border-gray-800/80 bg-[#0a0a16] py-3.5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center sm:justify-between items-center gap-4 text-xs font-semibold text-gray-400 tracking-wider">
-          <span>🎯 PERFORMANCE MARKETING</span>
-          <span>📈 LEAD GENERATION</span>
-          <span>📊 CONVERSION OPTIMIZATION</span>
-          <span>💾 CRM & AUTOMATION</span>
-          <span>⚡ DATA-DRIVEN GROWTH</span>
+      {/* SINGLE BADGES BANNER (Duplicate Badges Remove Kar Diye Hain) */}
+      <div className="mt-14 sm:mt-20 border-y border-gray-800/80 bg-[#090915] py-4">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center lg:justify-between items-center gap-4 text-[11px] sm:text-xs font-semibold text-gray-400 tracking-wider">
+          <span className="flex items-center gap-1.5">🎯 PERFORMANCE MARKETING</span>
+          <span className="hidden sm:inline text-gray-7xl">•</span>
+          <span className="flex items-center gap-1.5">📈 LEAD GENERATION</span>
+          <span className="hidden sm:inline text-gray-700">•</span>
+          <span className="flex items-center gap-1.5">📊 CONVERSION OPTIMIZATION</span>
+          <span className="hidden sm:inline text-gray-700">•</span>
+          <span className="flex items-center gap-1.5">💾 CRM & AUTOMATION</span>
+          <span className="hidden sm:inline text-gray-700">•</span>
+          <span className="flex items-center gap-1.5">⚡ DATA-DRIVEN GROWTH</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
