@@ -42,7 +42,7 @@ const HeroSection = () => {
 
       {/* HERO CONTENT */}
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pt-[105px] pb-0 sm:px-8 lg:px-10 lg:pt-[120px]">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-14">
           
           {/* LEFT */}
           <div
