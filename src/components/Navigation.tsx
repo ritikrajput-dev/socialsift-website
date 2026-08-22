@@ -42,8 +42,8 @@ export default function Navigation() {
           right: 0,
           zIndex: 100,
           transition: "all 0.3s ease",
-          background: scrolled ? "rgba(7,7,16,0.95)" : "transparent",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
+          background: scrolled ? "rgba(7,7,16,0.95)" : "rgba(7,7,16,0.5)",
+          backdropFilter: "blur(20px)",
           borderBottom: scrolled ? "1px solid rgba(99,102,241,0.1)" : "1px solid transparent",
         }}
       >
