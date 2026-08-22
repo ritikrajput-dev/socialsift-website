@@ -10,32 +10,51 @@ export default function HeroSection() {
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
+
     const onMove = (e: MouseEvent) => {
       const rect = hero.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+
       const img = hero.querySelector(".hero-float-img") as HTMLElement;
+
       if (img) {
-        img.style.transform = `translate(${x * 0.4}px, ${y * 0.4}px) translateY(0px)`;
+        img.style.transform = `translate(${x * 0.4}px, ${
+          y * 0.4
+        }px) translateY(0px)`;
       }
     };
+
     hero.addEventListener("mousemove", onMove);
+
     return () => hero.removeEventListener("mousemove", onMove);
   }, []);
 
   const scrollToContact = () => {
     const el = document.querySelector("#contact");
+
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: "smooth" });
+      const top =
+        el.getBoundingClientRect().top + window.scrollY - 80;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
     }
   };
 
   const scrollToServices = () => {
     const el = document.querySelector("#services");
+
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: "smooth" });
+      const top =
+        el.getBoundingClientRect().top + window.scrollY - 80;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -66,6 +85,7 @@ export default function HeroSection() {
           transform: "translateX(-50%)",
         }}
       />
+
       <div
         className="glow-orb"
         style={{
@@ -77,7 +97,14 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="container-ss" style={{ position: "relative", zIndex: 2 }}>
+      <div
+        className="container-ss"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          width: "100%",
+        }}
+      >
         <div
           className="hero-grid"
           style={{
@@ -85,14 +112,18 @@ export default function HeroSection() {
             gridTemplateColumns: "1fr 1fr",
             alignItems: "center",
             gap: "60px",
-            padding: "45px 0 35px",",
+            padding: "45px 0 35px",
           }}
         >
           {/* Left: text */}
           <div>
             <div
               className="section-label"
-              style={{ marginBottom: "28px", animation: "fadeInUp 0.6s ease forwards" }}
+              style={{
+                marginBottom: "28px",
+                animation:
+                  "fadeInUp 0.6s ease forwards",
+              }}
             >
               <span
                 style={{
@@ -104,6 +135,7 @@ export default function HeroSection() {
                   animation: "pulse-glow 2s infinite",
                 }}
               />
+
               Performance Marketing Agency
             </div>
 
@@ -114,13 +146,16 @@ export default function HeroSection() {
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
                 marginBottom: "24px",
-                animation: "fadeInUp 0.7s ease 0.1s both forwards",
+                animation:
+                  "fadeInUp 0.7s ease 0.1s both forwards",
                 opacity: 0,
               }}
             >
               Turn Attention
               <br />
-              <span className="headline-gradient">Into Growth.</span>
+              <span className="headline-gradient">
+                Into Growth.
+              </span>
             </h1>
 
             <p
@@ -130,13 +165,15 @@ export default function HeroSection() {
                 color: "var(--text-secondary)",
                 marginBottom: "40px",
                 maxWidth: "480px",
-                animation: "fadeInUp 0.7s ease 0.2s both forwards",
+                animation:
+                  "fadeInUp 0.7s ease 0.2s both forwards",
                 opacity: 0,
               }}
             >
-              SocialSift helps businesses generate qualified leads, acquire
-              customers, and build scalable digital growth systems through
-              performance marketing.
+              SocialSift helps businesses generate qualified
+              leads, acquire customers, and build scalable
+              digital growth systems through performance
+              marketing.
             </p>
 
             <div
@@ -144,15 +181,23 @@ export default function HeroSection() {
                 display: "flex",
                 gap: "12px",
                 flexWrap: "wrap",
-                animation: "fadeInUp 0.7s ease 0.3s both forwards",
+                animation:
+                  "fadeInUp 0.7s ease 0.3s both forwards",
                 opacity: 0,
               }}
             >
-              <button className="btn-primary" onClick={scrollToContact}>
+              <button
+                className="btn-primary"
+                onClick={scrollToContact}
+              >
                 Get a Free Growth Audit
                 <ArrowRight size={16} />
               </button>
-              <button className="btn-secondary" onClick={scrollToServices}>
+
+              <button
+                className="btn-secondary"
+                onClick={scrollToServices}
+              >
                 Explore Our Services
               </button>
             </div>
@@ -163,7 +208,8 @@ export default function HeroSection() {
                 fontSize: "12px",
                 color: "var(--text-muted)",
                 letterSpacing: "0.04em",
-                animation: "fadeInUp 0.7s ease 0.4s both forwards",
+                animation:
+                  "fadeInUp 0.7s ease 0.4s both forwards",
                 opacity: 0,
               }}
             >
@@ -179,7 +225,8 @@ export default function HeroSection() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              animation: "fadeIn 1s ease 0.4s both forwards",
+              animation:
+                "fadeIn 1s ease 0.4s both forwards",
               opacity: 0,
             }}
           >
@@ -188,8 +235,10 @@ export default function HeroSection() {
                 position: "relative",
                 borderRadius: "20px",
                 overflow: "hidden",
-                border: "1px solid rgba(99,102,241,0.2)",
-                boxShadow: "0 0 80px rgba(99,102,241,0.15), 0 40px 80px rgba(0,0,0,0.4)",
+                border:
+                  "1px solid rgba(99,102,241,0.2)",
+                boxShadow:
+                  "0 0 80px rgba(99,102,241,0.15), 0 40px 80px rgba(0,0,0,0.4)",
               }}
             >
               <Image
@@ -205,7 +254,7 @@ export default function HeroSection() {
                   objectFit: "cover",
                 }}
               />
-              {/* Overlay gradient */}
+
               <div
                 style={{
                   position: "absolute",
@@ -217,45 +266,77 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Floating metric cards */}
+            {/* Floating metric card */}
             <div
               style={{
                 position: "absolute",
                 top: "-20px",
                 left: "-30px",
                 background: "rgba(13,13,26,0.92)",
-                border: "1px solid rgba(99,102,241,0.2)",
+                border:
+                  "1px solid rgba(99,102,241,0.2)",
                 borderRadius: "12px",
                 padding: "12px 16px",
                 backdropFilter: "blur(16px)",
                 animation: "float 5s ease-in-out infinite",
               }}
             >
-              <div style={{ fontSize: "11px", color: "var(--text-muted)", marginBottom: "4px", fontWeight: 600 }}>
+              <div
+                style={{
+                  fontSize: "11px",
+                  color: "var(--text-muted)",
+                  marginBottom: "4px",
+                  fontWeight: 600,
+                }}
+              >
                 Lead Conversion
               </div>
-              <div style={{ fontSize: "20px", fontWeight: 800, color: "#4ade80" }}>
+
+              <div
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 800,
+                  color: "#4ade80",
+                }}
+              >
                 +38.4%
               </div>
             </div>
 
+            {/* Floating metric card */}
             <div
               style={{
                 position: "absolute",
                 bottom: "-15px",
                 right: "-20px",
                 background: "rgba(13,13,26,0.92)",
-                border: "1px solid rgba(99,102,241,0.2)",
+                border:
+                  "1px solid rgba(99,102,241,0.2)",
                 borderRadius: "12px",
                 padding: "12px 16px",
                 backdropFilter: "blur(16px)",
-                animation: "float 6s ease-in-out 1s infinite",
+                animation:
+                  "float 6s ease-in-out 1s infinite",
               }}
             >
-              <div style={{ fontSize: "11px", color: "var(--text-muted)", marginBottom: "4px", fontWeight: 600 }}>
+              <div
+                style={{
+                  fontSize: "11px",
+                  color: "var(--text-muted)",
+                  marginBottom: "4px",
+                  fontWeight: 600,
+                }}
+              >
                 Campaign ROAS
               </div>
-              <div style={{ fontSize: "20px", fontWeight: 800, color: "var(--accent-light)" }}>
+
+              <div
+                style={{
+                  fontSize: "20px",
+                  fontWeight: 800,
+                  color: "var(--accent-light)",
+                }}
+              >
                 4.2x
               </div>
             </div>
@@ -268,14 +349,25 @@ export default function HeroSection() {
             display: "flex",
             justifyContent: "center",
             paddingBottom: "15px",
-            animation: "fadeIn 1s ease 1s both forwards",
+            animation:
+              "fadeIn 1s ease 1s both forwards",
             opacity: 0,
           }}
         >
           <button
             onClick={() => {
-              const el = document.querySelector("#trust-strip");
-              if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
+              const el =
+                document.querySelector("#trust-strip");
+
+              if (el) {
+                window.scrollTo({
+                  top:
+                    el.getBoundingClientRect().top +
+                    window.scrollY -
+                    80,
+                  behavior: "smooth",
+                });
+              }
             }}
             style={{
               background: "none",
@@ -286,7 +378,8 @@ export default function HeroSection() {
               flexDirection: "column",
               alignItems: "center",
               gap: "4px",
-              animation: "float 2.5s ease-in-out infinite",
+              animation:
+                "float 2.5s ease-in-out infinite",
             }}
             aria-label="Scroll down"
           >
@@ -301,6 +394,7 @@ export default function HeroSection() {
             grid-template-columns: 1fr !important;
             padding: 60px 0 40px !important;
           }
+
           .hero-right-panel {
             display: none !important;
           }
