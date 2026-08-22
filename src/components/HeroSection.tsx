@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full bg-[#080811] text-white pt-28 pb-12 overflow-hidden">
+    <section className="relative w-full bg-[#080811] text-white pt-40 sm:pt-44 pb-12 overflow-hidden">
       {/* Main Centered Container - Navbar ke saath perfect align hoga */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -24,13 +24,13 @@ export default function HeroSection() {
 
             {/* Buttons (Mobile friendly) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto pt-2">
-              <a
+              
                 href="#audit"
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3.5 rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 text-center"
               >
                 Get a Free Growth Audit <span>→</span>
               </a>
-              <a
+              
                 href="#how-it-works"
                 className="text-gray-300 hover:text-white px-5 py-3.5 font-medium text-sm transition text-center border border-gray-800 sm:border-none rounded-xl"
               >
