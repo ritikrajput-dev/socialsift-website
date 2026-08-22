@@ -13,21 +13,29 @@ export default function HeroSection() {
 
     const onMove = (e: MouseEvent) => {
       const rect = hero.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
 
-      const img = hero.querySelector(".hero-float-img") as HTMLElement;
+      const x =
+        ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+
+      const y =
+        ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+
+      const img = hero.querySelector(
+        ".hero-float-img"
+      ) as HTMLElement;
 
       if (img) {
         img.style.transform = `translate(${x * 0.4}px, ${
           y * 0.4
-        }px) translateY(0px)`;
+        }px)`;
       }
     };
 
     hero.addEventListener("mousemove", onMove);
 
-    return () => hero.removeEventListener("mousemove", onMove);
+    return () => {
+      hero.removeEventListener("mousemove", onMove);
+    };
   }, []);
 
   const scrollToContact = () => {
@@ -35,7 +43,9 @@ export default function HeroSection() {
 
     if (el) {
       const top =
-        el.getBoundingClientRect().top + window.scrollY - 80;
+        el.getBoundingClientRect().top +
+        window.scrollY -
+        80;
 
       window.scrollTo({
         top,
@@ -49,7 +59,9 @@ export default function HeroSection() {
 
     if (el) {
       const top =
-        el.getBoundingClientRect().top + window.scrollY - 80;
+        el.getBoundingClientRect().top +
+        window.scrollY -
+        80;
 
       window.scrollTo({
         top,
@@ -69,29 +81,32 @@ export default function HeroSection() {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "72px",
-        paddingBottom: "20px",
+        paddingTop: "55px",
+        paddingBottom: "0px",
       }}
     >
-      {/* Glow orbs */}
+      {/* Glow Orb */}
       <div
         className="glow-orb animate-pulse-glow"
         style={{
           width: "600px",
           height: "600px",
-          background: "rgba(99,102,241,0.15)",
+          background:
+            "rgba(99,102,241,0.15)",
           top: "-150px",
           left: "50%",
           transform: "translateX(-50%)",
         }}
       />
 
+      {/* Secondary Glow */}
       <div
         className="glow-orb"
         style={{
           width: "300px",
           height: "300px",
-          background: "rgba(129,140,248,0.08)",
+          background:
+            "rgba(129,140,248,0.08)",
           bottom: "100px",
           right: "-50px",
         }}
@@ -112,11 +127,12 @@ export default function HeroSection() {
             gridTemplateColumns: "1fr 1fr",
             alignItems: "center",
             gap: "60px",
-            padding: "45px 0 35px",
+            padding: "25px 0 15px",
           }}
         >
-          {/* Left: text */}
+          {/* LEFT CONTENT */}
           <div>
+            {/* Label */}
             <div
               className="section-label"
               style={{
@@ -130,18 +146,22 @@ export default function HeroSection() {
                   width: "6px",
                   height: "6px",
                   borderRadius: "50%",
-                  background: "var(--accent-light)",
+                  background:
+                    "var(--accent-light)",
                   display: "inline-block",
-                  animation: "pulse-glow 2s infinite",
+                  animation:
+                    "pulse-glow 2s infinite",
                 }}
               />
 
               Performance Marketing Agency
             </div>
 
+            {/* Heading */}
             <h1
               style={{
-                fontSize: "clamp(40px, 5.5vw, 72px)",
+                fontSize:
+                  "clamp(40px, 5.5vw, 72px)",
                 fontWeight: 900,
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
@@ -153,16 +173,20 @@ export default function HeroSection() {
             >
               Turn Attention
               <br />
+
               <span className="headline-gradient">
                 Into Growth.
               </span>
             </h1>
 
+            {/* Description */}
             <p
               style={{
-                fontSize: "clamp(16px, 1.8vw, 19px)",
+                fontSize:
+                  "clamp(16px, 1.8vw, 19px)",
                 lineHeight: 1.7,
-                color: "var(--text-secondary)",
+                color:
+                  "var(--text-secondary)",
                 marginBottom: "40px",
                 maxWidth: "480px",
                 animation:
@@ -170,12 +194,14 @@ export default function HeroSection() {
                 opacity: 0,
               }}
             >
-              SocialSift helps businesses generate qualified
-              leads, acquire customers, and build scalable
-              digital growth systems through performance
-              marketing.
+              SocialSift helps businesses
+              generate qualified leads, acquire
+              customers, and build scalable
+              digital growth systems through
+              performance marketing.
             </p>
 
+            {/* Buttons */}
             <div
               style={{
                 display: "flex",
@@ -202,22 +228,26 @@ export default function HeroSection() {
               </button>
             </div>
 
+            {/* Location */}
             <p
               style={{
                 marginTop: "28px",
                 fontSize: "12px",
-                color: "var(--text-muted)",
+                color:
+                  "var(--text-muted)",
                 letterSpacing: "0.04em",
                 animation:
                   "fadeInUp 0.7s ease 0.4s both forwards",
                 opacity: 0,
               }}
             >
-              Based in India &nbsp;•&nbsp; Serving Clients Worldwide
+              Based in India
+              &nbsp;•&nbsp;
+              Serving Clients Worldwide
             </p>
           </div>
 
-          {/* Right: visual */}
+          {/* RIGHT VISUAL */}
           <div
             className="hero-right-panel"
             style={{
@@ -230,6 +260,7 @@ export default function HeroSection() {
               opacity: 0,
             }}
           >
+            {/* Main Image */}
             <div
               style={{
                 position: "relative",
@@ -250,11 +281,13 @@ export default function HeroSection() {
                 className="hero-float-img"
                 style={{
                   display: "block",
-                  transition: "transform 0.3s ease",
+                  transition:
+                    "transform 0.3s ease",
                   objectFit: "cover",
                 }}
               />
 
+              {/* Image Overlay */}
               <div
                 style={{
                   position: "absolute",
@@ -266,25 +299,28 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Floating metric card */}
+            {/* Lead Conversion Card */}
             <div
               style={{
                 position: "absolute",
                 top: "-20px",
                 left: "-30px",
-                background: "rgba(13,13,26,0.92)",
+                background:
+                  "rgba(13,13,26,0.92)",
                 border:
                   "1px solid rgba(99,102,241,0.2)",
                 borderRadius: "12px",
                 padding: "12px 16px",
                 backdropFilter: "blur(16px)",
-                animation: "float 5s ease-in-out infinite",
+                animation:
+                  "float 5s ease-in-out infinite",
               }}
             >
               <div
                 style={{
                   fontSize: "11px",
-                  color: "var(--text-muted)",
+                  color:
+                    "var(--text-muted)",
                   marginBottom: "4px",
                   fontWeight: 600,
                 }}
@@ -303,13 +339,14 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Floating metric card */}
+            {/* ROAS Card */}
             <div
               style={{
                 position: "absolute",
                 bottom: "-15px",
                 right: "-20px",
-                background: "rgba(13,13,26,0.92)",
+                background:
+                  "rgba(13,13,26,0.92)",
                 border:
                   "1px solid rgba(99,102,241,0.2)",
                 borderRadius: "12px",
@@ -322,7 +359,8 @@ export default function HeroSection() {
               <div
                 style={{
                   fontSize: "11px",
-                  color: "var(--text-muted)",
+                  color:
+                    "var(--text-muted)",
                   marginBottom: "4px",
                   fontWeight: 600,
                 }}
@@ -334,7 +372,8 @@ export default function HeroSection() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 800,
-                  color: "var(--accent-light)",
+                  color:
+                    "var(--accent-light)",
                 }}
               >
                 4.2x
@@ -343,12 +382,12 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll Indicator */}
         <div
           style={{
             display: "flex",
             justifyContent: "center",
-            paddingBottom: "15px",
+            paddingBottom: "5px",
             animation:
               "fadeIn 1s ease 1s both forwards",
             opacity: 0,
@@ -357,12 +396,15 @@ export default function HeroSection() {
           <button
             onClick={() => {
               const el =
-                document.querySelector("#trust-strip");
+                document.querySelector(
+                  "#trust-strip"
+                );
 
               if (el) {
                 window.scrollTo({
                   top:
-                    el.getBoundingClientRect().top +
+                    el.getBoundingClientRect()
+                      .top +
                     window.scrollY -
                     80,
                   behavior: "smooth",
@@ -373,7 +415,8 @@ export default function HeroSection() {
               background: "none",
               border: "none",
               cursor: "pointer",
-              color: "var(--text-muted)",
+              color:
+                "var(--text-muted)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -388,11 +431,12 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* Responsive */}
       <style>{`
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            padding: 60px 0 40px !important;
+            padding: 45px 0 25px !important;
           }
 
           .hero-right-panel {
