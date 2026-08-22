@@ -45,12 +45,13 @@ export default function HeroSection() {
       ref={heroRef}
       className="hero-bg grid-pattern"
       style={{
-        minHeight: "100vh",
+        minHeight: "auto",
         display: "flex",
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
         paddingTop: "72px",
+        paddingBottom: "20px",
       }}
     >
       {/* Glow orbs */}
@@ -84,7 +85,7 @@ export default function HeroSection() {
             gridTemplateColumns: "1fr 1fr",
             alignItems: "center",
             gap: "60px",
-            padding: "80px 0",
+            padding: "45px 0 35px",",
           }}
         >
           {/* Left: text */}
@@ -266,7 +267,7 @@ export default function HeroSection() {
           style={{
             display: "flex",
             justifyContent: "center",
-            paddingBottom: "40px",
+            paddingBottom: "15px",
             animation: "fadeIn 1s ease 1s both forwards",
             opacity: 0,
           }}
